@@ -1,9 +1,10 @@
 {
+  "extends": "@tsconfig/strictest/tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist/",
     "module": "esnext",
     "target": "es6",
     "moduleResolution": "node",
-    "lib": ["esnext", "dom"]
+    "lib": ["dom", "esnext"]
   }
 }
