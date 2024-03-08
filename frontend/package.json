@@ -2,7 +2,7 @@
   "name": "frontend",
   "scripts": {
     "build": "npx webpack build --progress",
-    "serve": "npx webpack serve --progress --open --mode=development"
+    "serve": "npx webpack serve --progress --mode=development"
   },
   "devDependencies": {
     "@tsconfig/strictest": "=2.0.3",
