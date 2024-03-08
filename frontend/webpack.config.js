@@ -24,7 +24,6 @@ module.exports = {
     ],
   },
   devServer: {
-    static: './dist',
     client: {
       overlay: false,
     },
