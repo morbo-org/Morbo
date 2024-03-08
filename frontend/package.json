@@ -2,7 +2,6 @@
   "name": "frontend",
   "scripts": {
     "build": "npx webpack build --progress",
-    "watch": "npx webpack watch --progress --mode=development",
     "serve": "npx webpack serve --progress --open --mode=development"
   },
   "devDependencies": {
