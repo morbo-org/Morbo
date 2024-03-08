@@ -1,14 +1,12 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
 
-const path = require('path');
-
-module.exports = {
+export default {
   entry: './src/index.tsx',
   mode: 'production',
   output: {
     filename: 'index.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: import.meta.dirname + '/dist',
     clean: true,
   },
   optimization: {

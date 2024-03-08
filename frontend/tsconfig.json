@@ -1,11 +1,13 @@
 {
   "extends": "@tsconfig/strictest/tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist/",
-    "module": "esnext",
-    "target": "es6",
-    "moduleResolution": "node",
-    "lib": ["dom", "esnext"],
+    "allowJs": true,
+    "checkJs": true,
     "jsx": "react-jsx",
+    "lib": ["dom", "esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "outDir": "./dist/",
+    "target": "es6",
   }
 }
