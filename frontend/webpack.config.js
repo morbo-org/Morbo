@@ -1,12 +1,12 @@
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import TerserPlugin from 'terser-webpack-plugin';
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
 
 export default {
-  entry: './src/index.tsx',
-  mode: 'production',
+  entry: "./src/index.tsx",
+  mode: "production",
   output: {
-    filename: 'index.js',
-    path: import.meta.dirname + '/dist',
+    filename: "index.js",
+    path: import.meta.dirname + "/dist",
     clean: true,
   },
   optimization: {
@@ -30,16 +30,16 @@ export default {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        loader: 'ts-loader',
+        loader: "ts-loader",
       },
     ],
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx'],
+    extensions: [".js", "*.jsx", ".ts", ".tsx"],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      scriptLoading: 'module',
+      template: "src/index.html",
+      scriptLoading: "module",
     })],
 };
