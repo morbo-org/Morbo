@@ -5,36 +5,44 @@ import pluginTypeScript from "typescript-eslint";
 
 const sources = {
   files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
-  ignores: [
-    "dist/*",
-    "node_modules/*",
-  ],
+  ignores: ["dist/*", "node_modules/*"],
 };
 
 export default [
-  ...pluginTypeScript.config({
-    ...sources,
-    extends: [
-      eslint.configs.recommended,
-      ...pluginTypeScript.configs.strictTypeChecked,
-      ...pluginTypeScript.configs.stylisticTypeChecked,
-    ],
-    rules: {
-      "@typescript-eslint/no-non-null-assertion": "off",
-    },
-    languageOptions: {
-      parserOptions: {
-        project: true,
-        tsconfigRootDir: import.meta.dirname,
+  ...pluginTypeScript.config(
+    {
+      ...sources,
+      extends: [
+        eslint.configs.recommended,
+        ...pluginTypeScript.configs.strictTypeChecked,
+        ...pluginTypeScript.configs.stylisticTypeChecked,
+      ],
+      rules: {
+        "@typescript-eslint/no-non-null-assertion": "off",
+      },
+      languageOptions: {
+        parserOptions: {
+          project: true,
+          tsconfigRootDir: import.meta.dirname,
+        },
       },
     },
-  }),
+    {
+      files: ["**/*.js", "**/*.jsx"],
+      ...pluginTypeScript.configs.disableTypeChecked,
+    },
+  ),
   {
     ...sources,
-    ...pluginStylistic.configs.customize({
-      quotes: "double",
-      semi: true,
-    }),
+    plugins: {
+      "@stylistic": pluginStylistic,
+    },
+    rules: {
+      ...pluginStylistic.configs.customize({
+        quotes: "double",
+        semi: true,
+      }).rules,
+    },
   },
   {
     ...sources,
@@ -45,8 +53,7 @@ export default [
       ...pluginImport.configs.recommended.rules,
       ...pluginImport.configs.typescript.rules,
       "import/order": [
-        "warn",
-        {
+        "warn", {
           "alphabetize": {
             order: "asc",
             caseInsensitive: true,
