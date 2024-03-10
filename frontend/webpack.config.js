@@ -1,7 +1,7 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import TerserPlugin from "terser-webpack-plugin";
 
-export default {
+const config = {
   entry: "./src/index.tsx",
   mode: "production",
   output: {
@@ -22,6 +22,7 @@ export default {
     ],
   },
   devServer: {
+    port: 8085,
     client: {
       overlay: false,
     },
@@ -41,5 +42,13 @@ export default {
     new HtmlWebpackPlugin({
       template: "src/index.html",
       scriptLoading: "module",
-    })],
+    }),
+  ],
+};
+
+export default (_, argv) => {
+  if (argv.mode === "development") {
+    config.devtool = "source-map";
+  }
+  return config;
 };
