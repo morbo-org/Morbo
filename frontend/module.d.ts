@@ -1,3 +1,7 @@
+declare module "*.css" {
+  export default {} as Record<string, string>;
+}
+
 declare module "eslint-plugin-import" {
   import type { Linter } from "eslint";
 

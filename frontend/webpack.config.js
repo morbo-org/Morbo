@@ -1,8 +1,10 @@
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import TerserPlugin from "terser-webpack-plugin";
 
 const config = {
-  entry: "./src/index.tsx",
+  entry: { index: "./src/index.tsx" },
   mode: "production",
   output: {
     filename: "index.js",
@@ -19,6 +21,7 @@ const config = {
           },
         },
       }),
+      new CssMinimizerPlugin(),
     ],
   },
   devServer: {
@@ -26,14 +29,6 @@ const config = {
     client: {
       overlay: false,
     },
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(ts|tsx)$/,
-        loader: "ts-loader",
-      },
-    ],
   },
   resolve: {
     extensions: [".js", "*.jsx", ".ts", ".tsx"],
@@ -43,7 +38,28 @@ const config = {
       template: "src/index.html",
       scriptLoading: "module",
     }),
+    new MiniCssExtractPlugin(),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        loader: "ts-loader",
+      },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
+        ],
+      },
+    ],
+  },
 };
 
 export default (_, argv) => {
