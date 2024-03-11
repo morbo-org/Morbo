@@ -26,6 +26,17 @@ const config = {
       }),
       new CssMinimizerPlugin(),
     ],
+    runtimeChunk: "single",
+    moduleIds: "deterministic",
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all",
+        },
+      },
+    },
   },
   devServer: {
     port: 8085,
