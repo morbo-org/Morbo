@@ -7,7 +7,7 @@ const config = {
   entry: { index: "./src/index.tsx" },
   mode: "production",
   output: {
-    filename: "[name].js",
+    filename: "[name].[contenthash].js",
     path: import.meta.dirname + "/dist",
     clean: true,
   },
@@ -41,7 +41,9 @@ const config = {
       template: "src/index.html",
       scriptLoading: "module",
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
+    }),
   ],
   module: {
     rules: [
