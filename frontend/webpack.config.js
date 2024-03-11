@@ -16,6 +16,9 @@ const config = {
       new TerserPlugin({
         extractComments: false,
         terserOptions: {
+          compress: {
+            passes: 2,
+          },
           format: {
             comments: false,
           },
