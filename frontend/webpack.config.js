@@ -7,7 +7,7 @@ const config = {
   entry: { index: "./src/index.tsx" },
   mode: "production",
   output: {
-    filename: "index.js",
+    filename: "[name].js",
     path: import.meta.dirname + "/dist",
     clean: true,
   },
