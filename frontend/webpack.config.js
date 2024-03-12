@@ -1,3 +1,5 @@
+import path from "path";
+
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
@@ -8,7 +10,7 @@ const config = {
   mode: "production",
   output: {
     filename: "[name].[contenthash].js",
-    path: import.meta.dirname + "/dist",
+    path: path.join(import.meta.dirname, "dist"),
     clean: true,
   },
   optimization: {
@@ -38,6 +40,10 @@ const config = {
       },
     },
   },
+  cache: {
+    type: "filesystem",
+    compression: "brotli",
+  },
   devServer: {
     port: 8085,
     client: {
@@ -45,7 +51,8 @@ const config = {
     },
   },
   resolve: {
-    extensions: [".js", "*.jsx", ".ts", ".tsx"],
+    extensions: [".tsx"],
+    symlinks: false,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -59,11 +66,13 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.tsx$/,
+        include: path.join(import.meta.dirname, "src"),
         loader: "ts-loader",
       },
       {
         test: /\.css$/,
+        include: path.join(import.meta.dirname, "src"),
         use: [
           MiniCssExtractPlugin.loader,
           {
