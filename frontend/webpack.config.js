@@ -51,7 +51,7 @@ const config = {
     },
   },
   resolve: {
-    extensions: [".tsx"],
+    extensions: [".js", ".tsx"],
     symlinks: false,
   },
   plugins: [
