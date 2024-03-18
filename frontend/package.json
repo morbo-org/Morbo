@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "build": "npx webpack build --progress",
-    "serve": "npx webpack serve --progress --mode=development",
+    "watch": "npx webpack watch --progress --mode=development",
     "analyze": "npm run build -- --analyze",
     "lint": "tsc --noEmit; npx eslint ."
   },
@@ -32,7 +32,6 @@
     "typescript-plugin-css-modules": "=5.1.0",
     "webpack": "=5.90.3",
     "webpack-bundle-analyzer": "=4.10.1",
-    "webpack-cli": "=5.1.4",
-    "webpack-dev-server": "=5.0.2"
+    "webpack-cli": "=5.1.4"
   }
 }

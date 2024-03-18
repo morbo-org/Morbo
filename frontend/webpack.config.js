@@ -44,13 +44,6 @@ const config = {
     type: "filesystem",
     compression: "brotli",
   },
-  devServer: {
-    host: "0.0.0.0",
-    port: 8085,
-    client: {
-      overlay: false,
-    },
-  },
   resolve: {
     extensions: [".js", ".tsx"],
     symlinks: false,
