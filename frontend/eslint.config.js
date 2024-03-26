@@ -42,6 +42,8 @@ export default [
         quotes: "double",
         semi: true,
       }).rules,
+      "object-curly-newline": ["warn", { multiline: true, consistent: true }],
+      "object-property-newline": ["warn", { allowAllPropertiesOnSameLine: true }],
     },
   },
   {
