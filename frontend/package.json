@@ -2,8 +2,8 @@
   "name": "frontend",
   "type": "module",
   "scripts": {
-    "build": "npx webpack build --progress",
-    "watch": "npx webpack watch --progress --mode=development",
+    "build": "npx webpack build --progress --stats-children",
+    "develop": "npm run build -- --mode=development",
     "analyze": "npm run build -- --analyze",
     "lint": "tsc --noEmit; npx eslint ."
   },
