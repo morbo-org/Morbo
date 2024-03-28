@@ -4,6 +4,7 @@
   "scripts": {
     "build": "npx webpack build --progress --stats-children",
     "develop": "npm run build -- --mode=development",
+    "watch": "npm run develop -- --watch",
     "analyze": "npm run build -- --analyze",
     "lint": "tsc --noEmit; npx eslint . --ignore-pattern dist"
   },

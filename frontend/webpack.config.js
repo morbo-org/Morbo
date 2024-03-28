@@ -6,14 +6,19 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import TerserPlugin from "terser-webpack-plugin";
 import WorkboxPlugin from "workbox-webpack-plugin";
 
-export default (_, argv) => {
+export default (env, argv) => {
   const devMode = argv.mode === "development";
+  const watchMode = env.WEBPACK_WATCH || false;
 
   return {
     entry: { index: "./src/index.tsx" },
     mode: "production",
     output: {
-      clean: true,
+      clean: watchMode
+        ? {
+            keep: /(assets\/|manifest\..*\.webmanifest)/,
+          }
+        : true,
       filename: "[name].[contenthash].js",
       path: path.join(import.meta.dirname, "dist"),
       publicPath: "",
@@ -58,10 +63,12 @@ export default (_, argv) => {
       new MiniCssExtractPlugin({
         filename: "[name].[contenthash].css",
       }),
-      new WorkboxPlugin.GenerateSW({
-        clientsClaim: devMode,
-        skipWaiting: devMode,
-      }),
+      ...watchMode
+        ? []
+        : [new WorkboxPlugin.GenerateSW({
+            clientsClaim: devMode,
+            skipWaiting: devMode,
+          })],
     ],
     module: {
       rules: [
