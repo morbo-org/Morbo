@@ -63,12 +63,10 @@ export default (env, argv) => {
       new MiniCssExtractPlugin({
         filename: "[name].[contenthash].css",
       }),
-      ...watchMode
-        ? []
-        : [new WorkboxPlugin.GenerateSW({
-            clientsClaim: devMode,
-            skipWaiting: devMode,
-          })],
+      new WorkboxPlugin.GenerateSW({
+        clientsClaim: devMode,
+        skipWaiting: devMode,
+      }),
     ],
     module: {
       rules: [
