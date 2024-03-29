@@ -11,6 +11,7 @@
       pkgs = import nixpkgs {inherit system;};
     in {
       devShells.default = pkgs.mkShell {
+        name = "morbo-shell";
         nativeBuildInputs = with pkgs; [
           alejandra
           bashInteractive
