@@ -65,6 +65,7 @@ export default (env, argv) => {
       }),
       new WorkboxPlugin.GenerateSW({
         clientsClaim: devMode,
+        exclude: [/\.map$/, /^assets\/.*\.png$/],
         skipWaiting: devMode,
       }),
     ],
