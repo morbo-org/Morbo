@@ -4,7 +4,7 @@ import pluginImport from "eslint-plugin-import";
 import pluginTypeScript from "typescript-eslint";
 
 const sources = {
-  files: ["**/*.js", "**/*.tsx"],
+  files: ["**/*.js", "**/*.ts", "**/*.tsx"],
   ignores: ["dist/*", "node_modules/*"],
 };
 

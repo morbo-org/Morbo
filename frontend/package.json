@@ -10,7 +10,12 @@
   },
   "dependencies": {
     "react": "=18.2.0",
-    "react-dom": "=18.2.0"
+    "react-dom": "=18.2.0",
+    "workbox-core": "=7.0.0",
+    "workbox-expiration": "=7.0.0",
+    "workbox-precaching": "=7.0.0",
+    "workbox-routing": "=7.0.0",
+    "workbox-strategies": "=7.0.0"
   },
   "devDependencies": {
     "@eslint/js": "=8.57.0",
@@ -19,6 +24,7 @@
     "@types/eslint__js": "=8.42.3",
     "@types/react": "=18.2.64",
     "@types/react-dom": "=18.2.21",
+    "@types/serviceworker": "=0.0.84",
     "css-loader": "=6.10.0",
     "css-minimizer-webpack-plugin": "=6.0.0",
     "eslint": "=8.57.0",
