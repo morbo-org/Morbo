@@ -27,7 +27,6 @@ registerRoute(
       // @ts-expect-error Upstream issue: https://github.com/GoogleChrome/workbox/issues/3141
       new ExpirationPlugin({
         maxEntries: 3 * 3,
-        maxAgeSeconds: 60 * 60 * 24 * 20,
         purgeOnQuotaError: true,
       }),
     ],
