@@ -1,4 +1,5 @@
 declare const DEV_MODE: boolean;
+declare const NUMBER_OF_ASSETS: number;
 
 declare module "*.css" {
   export default {} as Record<string, string>;

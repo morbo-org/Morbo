@@ -1,3 +1,4 @@
+import fs from "fs";
 import path from "path";
 
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
@@ -10,6 +11,9 @@ import WorkboxPlugin from "workbox-webpack-plugin";
 export default (env, argv) => {
   const devMode = argv.mode === "development";
   const watchMode = env.WEBPACK_WATCH || false;
+
+  const assets = fs.readdirSync("./public/assets");
+  const numberOfAssets = assets.length;
 
   return {
     entry: { index: "./src/index.tsx" },
@@ -71,6 +75,7 @@ export default (env, argv) => {
       }),
       new webpack.DefinePlugin({
         DEV_MODE: devMode,
+        NUMBER_OF_ASSETS: numberOfAssets,
       }),
     ],
     module: {
