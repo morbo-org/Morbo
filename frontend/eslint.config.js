@@ -18,6 +18,7 @@ export default [
         ...pluginTypeScript.configs.stylisticTypeChecked,
       ],
       rules: {
+        "sort-imports": ["warn", { ignoreDeclarationSort: true }],
         "@typescript-eslint/no-non-null-assertion": "off",
       },
       languageOptions: {
