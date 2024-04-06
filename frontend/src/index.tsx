@@ -3,6 +3,11 @@ import { createRoot } from "react-dom/client";
 
 import App from "./App";
 
+if ("storage" in navigator && "persist" in navigator.storage) {
+  const isPersisted = await navigator.storage.persist();
+  console.log(`Persisted storage granted: ${isPersisted}`);
+}
+
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("/service-worker.js").then((registration) => {
