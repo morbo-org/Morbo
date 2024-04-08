@@ -7,8 +7,12 @@ import { CacheFirst } from "workbox-strategies";
 declare const self: ServiceWorkerGlobalScope;
 
 if (DEV_MODE) {
-  self.addEventListener("install", () => void self.skipWaiting());
-  self.addEventListener("activate", () => void self.clients.claim());
+  self.addEventListener("install", (event) => {
+    event.waitUntil(self.skipWaiting());
+  });
+  self.addEventListener("activate", (event) => {
+    event.waitUntil(self.clients.claim());
+  });
 }
 
 setCacheNameDetails({
