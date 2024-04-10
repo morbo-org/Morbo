@@ -40,6 +40,7 @@ export default [
     },
     rules: {
       ...pluginStylistic.configs.customize({
+        braceStyle: "1tbs",
         quotes: "double",
         semi: true,
       }).rules,
