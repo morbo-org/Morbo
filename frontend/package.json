@@ -24,7 +24,6 @@
     "@types/eslint__js": "=8.42.3",
     "@types/react": "=18.2.64",
     "@types/react-dom": "=18.2.21",
-    "@types/serviceworker": "=0.0.84",
     "css-loader": "=6.10.0",
     "css-minimizer-webpack-plugin": "=6.0.0",
     "eslint": "=8.57.0",
