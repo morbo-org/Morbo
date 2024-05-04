@@ -3,6 +3,8 @@ import { createRoot } from "react-dom/client";
 
 import App from "./App";
 
+import "./index.css";
+
 if ("storage" in navigator && "persist" in navigator.storage) {
   const isPersisted = await navigator.storage.persist();
   console.log(`Persisted storage granted: ${isPersisted}`);

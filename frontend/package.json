@@ -20,8 +20,10 @@
   "devDependencies": {
     "@eslint/js": "=8.57.0",
     "@stylistic/eslint-plugin": "=1.6.3",
+    "@svgr/webpack": "=8.1.0",
     "@tsconfig/strictest": "=2.0.3",
     "@types/eslint__js": "=8.42.3",
+    "@types/node": "=20.12.7",
     "@types/react": "=18.2.64",
     "@types/react-dom": "=18.2.21",
     "css-loader": "=6.10.0",
