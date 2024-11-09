@@ -2,6 +2,6 @@
 
 Git mirrors:
 
-- [Codeberg](https://codeberg.org/paveloom-a/Morbo)
-- [GitHub](https://github.com/paveloom-a/Morbo)
-- [GitLab](https://gitlab.com/paveloom-g/apps/Morbo)
+- [Codeberg](https://codeberg.org/morbo-org/Morbo)
+- [GitHub](https://github.com/morbo-org/Morbo)
+- [GitLab](https://gitlab.com/morbo-org/Morbo)
