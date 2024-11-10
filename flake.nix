@@ -31,6 +31,12 @@
             nixfmt-rfc-style
 
             nodejs_latest
+
+            bash-language-server
+            dockerfile-language-server-nodejs
+            hadolint
+            yamlfmt
+            yamllint
           ];
         };
       });
