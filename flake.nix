@@ -32,6 +32,11 @@
 
             nodejs_latest
 
+            go_1_23
+            (gopls.override {
+              buildGoModule = pkgs.buildGo123Module;
+            })
+
             bash-language-server
             dockerfile-language-server-nodejs
             hadolint
