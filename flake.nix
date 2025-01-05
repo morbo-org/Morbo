@@ -25,28 +25,37 @@
       devShells = forSystems (pkgs: {
         default = pkgs.mkShell {
           name = "morbo-shell";
-          nativeBuildInputs = with pkgs; [
-            bashInteractive
-            nixd
-            nixfmt-rfc-style
+          nativeBuildInputs =
+            let
+              overrideGo =
+                pkg:
+                (pkg.override {
+                  buildGoModule = pkgs.buildGo123Module;
+                });
+            in
+            with pkgs;
+            [
+              bashInteractive
+              nixd
+              nixfmt-rfc-style
 
-            ios-safari-remote-debug
-            ios-webkit-debug-proxy
-            nodejs_latest
-            typescript-language-server
-            vscode-langservers-extracted
+              ios-safari-remote-debug
+              ios-webkit-debug-proxy
+              nodejs_latest
+              typescript-language-server
+              vscode-langservers-extracted
 
-            go_1_23
-            (gopls.override {
-              buildGoModule = pkgs.buildGo123Module;
-            })
+              go_1_23
+              (overrideGo gofumpt)
+              (overrideGo golangci-lint)
+              (overrideGo gopls)
 
-            bash-language-server
-            dockerfile-language-server-nodejs
-            hadolint
-            yamlfmt
-            yamllint
-          ];
+              bash-language-server
+              dockerfile-language-server-nodejs
+              hadolint
+              yamlfmt
+              yamllint
+            ];
         };
       });
     };
