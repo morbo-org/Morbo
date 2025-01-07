@@ -46,6 +46,7 @@
               vscode-langservers-extracted
 
               go_1_23
+              (overrideGo gci)
               (overrideGo gofumpt)
               (overrideGo golangci-lint)
               (overrideGo gopls)
