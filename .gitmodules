@@ -1,3 +1,6 @@
 [submodule "backend"]
 	path = backend
 	url = ../backend.git
+[submodule "pwa"]
+	path = pwa
+	url = ../pwa.git
